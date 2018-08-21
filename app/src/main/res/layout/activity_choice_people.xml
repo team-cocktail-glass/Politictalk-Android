@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Report.FactionActivity"
+    android:background="#eaeaea">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:contentInsetStart="0dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fff">
+            <ImageView
+                android:id="@+id/place"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/redarrow"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginLeft="15dp" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorFuckYouBtn"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/place"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="국회의원 불만 리포트"
+                tools:ignore="NotSibling"
+                android:layout_marginStart="15dp"/>
+
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/sesseion"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        android:background="#fff">
+
+
+        <ImageView
+            android:id="@+id/userprofile"
+            android:background="@drawable/picture_black_round_shape"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/iu"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="80dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:shadowColor="@color/colorText"
+            android:shadowDy="3"
+            android:shadowRadius="6"
+            android:text="아이유 의원\n대전광역시 유성구 시의원"
+            android:id="@+id/name"
+            app:layout_constraintStart_toEndOf="@id/userprofile"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="15dp"
+            app:layout_constraintLeft_toRightOf="@id/userprofile"
+            />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <TextView
+        android:id="@+id/category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="불만 리포트"
+        android:textSize="14sp"
+        android:textColor="#242424"
+        android:lineSpacingExtra="10sp"
+        app:layout_constraintTop_toBottomOf="@id/sesseion"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"/>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/category"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp">
+    </android.support.v7.widget.RecyclerView>
+
+
+    <!--<android.support.design.widget.TabLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:orientation="vertical">-->
+    <!--<android.support.design.widget.AppBarLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
+    <!--</android.support.design.widget.AppBarLayout>-->
+    <!---->
+    <!--<TableLayout-->
+    <!--android:id="@+id/tabs"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
+    <!---->
+    <!--</TableLayout>-->
+
+    <!--</android.support.design.widget.TabLayout>-->
+
+</android.support.constraint.ConstraintLayout>
