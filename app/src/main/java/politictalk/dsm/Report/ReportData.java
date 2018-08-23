@@ -1,62 +1,38 @@
 package politictalk.dsm.Report;
 
-import android.graphics.drawable.Drawable;
-
 public class ReportData {
 
-    private int image;
+    private int scenery;
     private String name;
     private String title;
-    private int peoplenum;
-    private String date;
+    private String day;
+    private String peoplenum;
 
-    public ReportData(int image, String name, String title, int peoplenum, String date){
-        this.image = image;
+    public ReportData(int scenery, String name, String title, String day, String peoplenum){
+        this.day = day;
+        this.scenery = scenery;
         this.name = name;
         this.title = title;
         this.peoplenum = peoplenum;
-        this.date = date;
     }
 
+    public String getTitle() { return title; }
 
-    public int getImage() {
-        return image;
-    }
+    public void setTitle(String title) { this.title = title; }
 
-    public void setImage(int image) {
-        this.image = image;
-    }
+    public String getName() { return name; }
 
-    public String getName() {
-        return name;
-    }
+    public void setPeoplenum(String peoplenum) { this.peoplenum = peoplenum; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public int getScenery() { return scenery; }
 
-    public String getTitle() {
-        return title;
-    }
+    public void setName(String name) { this.name = name; }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+    public String getPeoplenum() { return peoplenum; }
 
-    public int getPeoplenum() {
-        return peoplenum;
-    }
+    public void setScenery(int scenery) { this.scenery = scenery; }
 
-    public void setPeoplenum(int peoplenum) {
-        this.peoplenum = peoplenum;
-    }
+    public String getDay() { return day; }
 
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
+    public void setDay(String day) { this.day = day; }
 }

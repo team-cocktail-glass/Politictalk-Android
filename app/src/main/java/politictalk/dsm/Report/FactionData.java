@@ -2,7 +2,7 @@ package politictalk.dsm.Report;
 
 import android.graphics.drawable.Drawable;
 
-public class Data {
+public class FactionData {
 
     private int image;
     private String name;
@@ -11,7 +11,7 @@ public class Data {
     private int firenum;
     private String date;
 
-    public Data(int image, String name, String adress, int peoplenum, int firenum, String date){
+    public FactionData(int image, String name, String adress, int peoplenum, int firenum, String date){
         this.image = image;
         this.name = name;
         this.adress = adress;

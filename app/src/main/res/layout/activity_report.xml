@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Report.FactionActivity"
-    android:background="#eaeaea">
+    tools:context=".Report.ReportActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -90,18 +89,18 @@
         android:id="@+id/category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="불만 리포트"
-        android:textSize="14sp"
-        android:textColor="#242424"
-        android:lineSpacingExtra="10sp"
-        app:layout_constraintTop_toBottomOf="@id/sesseion"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="10dp"/>
+        android:lineSpacingExtra="10sp"
+        android:text="불만 리포트"
+        android:textColor="#242424"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sesseion" />
 
 
     <android.support.v7.widget.RecyclerView
-        android:layout_marginStart="25dp"
+        android:layout_marginStart="20dp"
         android:id="@+id/recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -111,22 +110,5 @@
     </android.support.v7.widget.RecyclerView>
 
 
-    <!--<android.support.design.widget.TabLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:orientation="vertical">-->
-    <!--<android.support.design.widget.AppBarLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content">-->
-    <!--</android.support.design.widget.AppBarLayout>-->
-    <!---->
-    <!--<TableLayout-->
-    <!--android:id="@+id/tabs"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content">-->
-    <!---->
-    <!--</TableLayout>-->
-
-    <!--</android.support.design.widget.TabLayout>-->
 
 </android.support.constraint.ConstraintLayout>

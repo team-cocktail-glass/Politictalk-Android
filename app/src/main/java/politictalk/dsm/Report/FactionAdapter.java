@@ -13,18 +13,18 @@ import java.util.ArrayList;
 
 import politictalk.dsm.R;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.CostomViewHolder> {
+public class FactionAdapter extends RecyclerView.Adapter<FactionAdapter.CostomViewHolder> {
     Context context;
-    ArrayList<Data> people;
+    ArrayList<FactionData> people;
 
-    public Adapter(Context context, ArrayList<Data> singModels) {
+    public FactionAdapter(Context context, ArrayList<FactionData> singModels) {
         this.context = context;
         this.people = singModels;
     }
 
     @Override
     public CostomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.report_itmeview, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.faction_itemview, parent, false);
         return new CostomViewHolder(view);
     }
 
@@ -32,7 +32,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.CostomViewHolder> {
     public void onBindViewHolder(CostomViewHolder holder, int position) {
         holder.adress.setText(people.get(position).getAdress());
         holder.date.setText(people.get(position).getDate());
-        Log.e("xxx", holder.firenum.toString());
         holder.firenum.setText(people.get(position).getFirenum() + "");
         holder.name.setText(people.get(position).getName());
         holder.peoplenum.setText(people.get(position).getPeoplenum() + "");
@@ -55,11 +54,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.CostomViewHolder> {
 
         public CostomViewHolder(View itemView) {
             super(itemView);
-            name = itemView.findViewById(R.id.name);
-            adress = itemView.findViewById(R.id.adress);
+            name = itemView.findViewById(R.id.title);
+            adress = itemView.findViewById(R.id.day);
             date = itemView.findViewById(R.id.date);
-            image = itemView.findViewById(R.id.Profile);
-            peoplenum = itemView.findViewById(R.id.peoplenumber);
+            image = itemView.findViewById(R.id.scenery);
+            peoplenum = itemView.findViewById(R.id.peopleNum);
             firenum = itemView.findViewById(R.id.firenumber);
         }
     }
