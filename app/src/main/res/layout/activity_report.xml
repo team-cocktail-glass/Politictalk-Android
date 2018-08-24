@@ -57,10 +57,9 @@
 
         <ImageView
             android:id="@+id/userprofile"
-            android:background="@drawable/picture_black_round_shape"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:src="@drawable/iu"
+            android:src="@drawable/kangbyungwon"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +71,7 @@
             android:shadowColor="@color/colorText"
             android:shadowDy="3"
             android:shadowRadius="6"
-            android:text="아이유 의원\n대전광역시 유성구 시의원"
+            android:text="강병원 의원\n서울특별시 은평구 시의원"
             android:id="@+id/title"
             app:layout_constraintStart_toEndOf="@id/userprofile"
             app:layout_constraintTop_toTopOf="parent"
@@ -100,14 +99,30 @@
 
 
     <android.support.v7.widget.RecyclerView
-        android:layout_marginStart="20dp"
         android:id="@+id/recycler"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/category"
+        android:layout_height="0dp"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp">
+
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/category">
+
     </android.support.v7.widget.RecyclerView>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        app:itemIconTint="@color/colorText2"
+        app:itemTextColor="@color/colorText2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu">
+
+    </android.support.design.widget.BottomNavigationView>
 
 
 

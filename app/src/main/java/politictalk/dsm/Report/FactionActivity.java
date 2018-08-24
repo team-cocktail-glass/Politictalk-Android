@@ -51,8 +51,7 @@ public class FactionActivity extends AppCompatActivity implements OnMapReadyCall
         recyclerView.setAdapter(adapter);
     }
     void setData(){
-        for(int i = 0; i < 10; i++)
-            singleModels.add(new FactionData(R.drawable.iu,"아이유 의원","대전광역시 유성구 시의원",3, 121, "2018.06.14~2022.06.01"));
+        singleModels.add(new FactionData(R.drawable.kangbyungwon,"강병원 의원","서울특별시 은평구 시의원",3, 121, " 2016.05.30~2020.05.30"));
     }
 
 

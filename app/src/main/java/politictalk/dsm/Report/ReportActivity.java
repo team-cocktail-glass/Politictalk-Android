@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 
@@ -18,6 +20,7 @@ public class ReportActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ReportAdapter adapter;
     Drawable image;
+    ImageView backImg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +28,14 @@ public class ReportActivity extends AppCompatActivity {
         setContentView(R.layout.activity_report);
         
         recyclerView = findViewById(R.id.recycler);
-        
+        backImg = findViewById(R.id.place);
+
+        backImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         setData();
         
         setRecyclerView();

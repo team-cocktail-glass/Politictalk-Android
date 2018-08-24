@@ -1,6 +1,8 @@
 package politictalk.dsm.Report;
 
 import android.content.Context;
+import android.content.Intent;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -37,6 +39,13 @@ public class FactionAdapter extends RecyclerView.Adapter<FactionAdapter.CostomVi
         holder.peoplenum.setText(people.get(position).getPeoplenum() + "");
 //        holder.image.setImageDrawable(people.get(position).getImage());
         holder.image.setImageResource(people.get(position).getImage());
+        holder.contanier.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), ReportActivity.class);
+                view.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -51,6 +60,7 @@ public class FactionAdapter extends RecyclerView.Adapter<FactionAdapter.CostomVi
         TextView peoplenum;
         TextView date;
         ImageView image;
+        ConstraintLayout contanier;
 
         public CostomViewHolder(View itemView) {
             super(itemView);
@@ -60,6 +70,7 @@ public class FactionAdapter extends RecyclerView.Adapter<FactionAdapter.CostomVi
             image = itemView.findViewById(R.id.scenery);
             peoplenum = itemView.findViewById(R.id.peopleNum);
             firenum = itemView.findViewById(R.id.firenumber);
+            contanier = itemView.findViewById(R.id.factionItem_container);
         }
     }
 }
