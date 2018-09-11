@@ -1,7 +1,6 @@
 package politictalk.dsm.Report;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
@@ -37,7 +36,6 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.CostomView
         holder.title.setText(people.get(position).getTitle());
         holder.day.setText(people.get(position).getDay());
         holder.name.setText(people.get(position).getName());
-        holder.name.setText(people.get(position).getPeoplenum());
         holder.container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

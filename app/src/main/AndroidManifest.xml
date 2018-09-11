@@ -19,13 +19,15 @@
         <activity android:name=".Login.LoginActivity" />
         <activity android:name=".Login.SignUpActivity" />
         <activity android:name=".Report.ReportActivity" />
-        <activity android:name=".Report.FactionActivity" >
+        <activity android:name=".Report.FactionActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+        <activity android:name=".Report.SearchActivity" />
+        <activity android:name=".Report.WriteReportActivity"/>
     </application>
 
 </manifest>

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Report.ReportActivity">
+    tools:context=".Report.WriteReportActivity"
+    android:background="#eaeaea">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -32,14 +33,29 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="56dp"
+                android:text="국회의원 불만 리포트"
                 android:textColor="@color/colorFuckYouBtn"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/place"
                 app:layout_constraintTop_toTopOf="parent"
-                android:text="국회의원 불만 리포트"
-                tools:ignore="NotSibling"
-                android:layout_marginStart="15dp"/>
+                app:layout_constraintVertical_bias="0.517"
+                tools:ignore="NotSibling" />
+
+            <Button
+                android:id="@+id/done"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:background="#fff"
+                android:text="완료"
+                android:textColor="@color/colorFuckYouBtn"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
         </android.support.constraint.ConstraintLayout>
@@ -48,7 +64,7 @@
     <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/sesseion"
         android:layout_width="match_parent"
-        android:layout_height="90dp"
+        android:layout_height="50dp"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
@@ -57,73 +73,64 @@
 
         <ImageView
             android:id="@+id/userprofile"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:src="@drawable/kangbyungwon"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="80dp"/>
+            android:layout_marginLeft="40dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:shadowColor="@color/colorText"
-            android:shadowDy="3"
-            android:shadowRadius="6"
             android:text="강병원 의원\n서울특별시 은평구 시의원"
             android:id="@+id/title"
             app:layout_constraintStart_toEndOf="@id/userprofile"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginStart="15dp"
-            app:layout_constraintLeft_toRightOf="@id/userprofile"
-            />
-
+            app:layout_constraintLeft_toRightOf="@id/userprofile" />
 
     </android.support.constraint.ConstraintLayout>
 
-
-    <TextView
-        android:id="@+id/category"
+    <EditText
+        android:id="@+id/edit_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="10dp"
-        android:lineSpacingExtra="10sp"
-        android:text="불만 리포트"
-        android:textColor="#242424"
-        android:textSize="14sp"
+        android:width="340dp"
+        android:height="30dp"
+        android:background="@drawable/black_round"
+        android:inputType="text"
+        android:hint="제목을 입력하세요."
+        android:textSize="15sp"
+        android:padding="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sesseion" />
+        app:layout_constraintTop_toBottomOf="@+id/sesseion" />
 
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+    <EditText
+        android:id="@+id/edit_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="10dp"
-
-        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/category">
-
-    </android.support.v7.widget.RecyclerView>
-
-    <ImageView
-        android:id="@+id/create"
-        android:background="@drawable/pencil_back"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/pencil"
-        android:layout_marginBottom="30dp"
-        android:layout_marginEnd="30dp"
+        android:background="@drawable/black_round"
+        android:width="340dp"
+        android:height="340dp"
+        android:inputType="textMultiLine"
+        android:gravity="top"
         android:padding="8dp"
-
-        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recycler"
-        app:layout_constraintVertical_bias="1.0" />
+        android:hint="내용을 입력하세요."
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_title" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -138,7 +145,5 @@
         app:menu="@menu/menu">
 
     </android.support.design.widget.BottomNavigationView>
-
-
 
 </android.support.constraint.ConstraintLayout>
