@@ -3,23 +3,6 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="colorMain">#5ca2f2</color>
-    <color name="colorBackground">#f4f4f4</color>
-    <color name="input_okay">#3f9334</color>
-    <color name="input_okay_background">#efffef</color>
-    <color name="input_no">#ffe8e8</color>
-    <color name="input_no_background">#d10010</color>
-    <color name="colorFuckYoyMain">#ff0000</color>
-    <color name="colorMeetingMain">#ffa700</color>
-    <color name="colorLawMain">#41aa00</color>
-    <color name="colorLawSub">#41cb35</color>
-    <color name="colorMeetingSub">#ffd23e</color>
-    <color name="colorFuckYouSub">#f25c5c</color>
-    <color name="pinkish_grey">#bfbfbf</color>
-    <color name="colorText">#6a6a6a</color>
-    <color name="colorShadows">#29000000</color>
-    <color name="colorIAgree">#00ff14</color>
-    <color name="colorText2">#3c3c3c</color>
-    <color name="colorFuckYouBtn">#ff3b00</color>
-    <color name="colorShadowsBtn">#80000000</color>
+    <color name="iconText">#747474</color>
+    <color name="background">#ffffff</color>
 </resources>

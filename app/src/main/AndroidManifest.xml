@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="politictalk.dsm">
+    package="com.example.zingdo.myapplication">
 
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- To access Google+ APIs: -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -12,29 +12,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyA6_O-AAtJl19ZqVl7MByQceAtkkSBR23E" />
-
-        <activity android:name=".Login.LoginActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Login.SignUpActivity" />
-        <activity android:name=".Report.ReportActivity" />
-        <activity android:name=".Report.FactionActivity" />
-        <activity android:name=".Report.SearchActivity" />
-        <activity android:name=".Report.WriteReportActivity" />
-        <activity android:name=".Report.ViewReportActivity" />
-        <activity android:name=".Meeting.MeetingMainActivity" />
-        <activity android:name=".Meeting.MeetingApplicationActivity" />
-        <activity android:name=".Meeting.MeetingChoiceActivity" />
-        <activity android:name=".Meeting.WriteMeetingActivity" />
-        <activity android:name=".Meeting.ViewMeetingActivity" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".FindPassword" />
+        <!--<activity android:name=".Send_email" />-->
+        <activity android:name=".MainBill" />
+        <activity android:name=".SendEmail" />
+        <activity android:name=".Home" />
+        <activity android:name=".HomeAlarm" />
+        <activity android:name=".FilterChoice" />
+        <activity android:name=".BillWrite" />
+        <activity android:name=".ShowJoiner" />
+        <activity android:name=".ShowPosts" />
+        <activity android:name=".BillSearch" />
+        <activity android:name=".MyPage" />
     </application>
 
 </manifest>
