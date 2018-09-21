@@ -1,4 +1,4 @@
-package politictalk.dsm.Report;
+package politictalk.dsm.Meeting;
 
 import android.app.FragmentManager;
 import android.content.Context;
@@ -20,27 +20,28 @@ import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
 
-import politictalk.dsm.Meeting.MeetingMainActivity;
 import politictalk.dsm.R;
+import politictalk.dsm.Report.FactionActivity;
 
-public class FactionActivity extends AppCompatActivity implements OnMapReadyCallback{
-
-    ArrayList<FactionData> singleModels = new ArrayList<>();
-    Context context = FactionActivity.this;
+public class MeetingMainActivity extends AppCompatActivity implements OnMapReadyCallback{
+    ArrayList<MeetingMainData> RecyclerViewer = new ArrayList<>();
+    Context context = MeetingMainActivity.this;
     RecyclerView recyclerView;
-    FactionAdapter adapter;
+    MeetingMainAdapter adapter;
     Drawable image;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_faction);
+        setContentView(R.layout.activity_meeting_main);
 
         FragmentManager fragmentManager = getFragmentManager();
         MapFragment mapFragment = (MapFragment)fragmentManager
-                .findFragmentById(R.id.map_facion);
+                .findFragmentById(R.id.map_meeting_main);
         mapFragment.getMapAsync(this);
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         recyclerView = findViewById(R.id.recycler);
 
@@ -48,15 +49,14 @@ public class FactionActivity extends AppCompatActivity implements OnMapReadyCall
 
         setRecyclerView();
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.action_three:
-                        Intent intent = new Intent(getApplicationContext(), MeetingMainActivity.class);
+                switch (item.getItemId()){
+                    case R.id.action_two:
+                        Intent intent = new Intent(getApplicationContext(), FactionActivity.class);
                         startActivity(intent);
+                        finish();
                         break;
                 }
                 return false;
@@ -67,11 +67,13 @@ public class FactionActivity extends AppCompatActivity implements OnMapReadyCall
         LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new FactionAdapter(getApplicationContext(), singleModels);
+        adapter = new MeetingMainAdapter(getApplicationContext(), RecyclerViewer);
         recyclerView.setAdapter(adapter);
     }
     void setData(){
-        singleModels.add(new FactionData(R.drawable.kangbyungwon,"강병원 의원","서울특별시 은평구 시의원",3, 121, " 2016.05.30~2020.05.30"));
+        for(int i = 0; i < 3; i++) {
+            RecyclerViewer.add(new MeetingMainData(R.drawable.kangbyungwon,"강병원 의원","서울특별시 은평구 시의원", " 2016.05.30~2020.05.30"));
+        }
     }
 
 

@@ -1,32 +1,32 @@
 package politictalk.dsm.Report;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import politictalk.dsm.Meeting.MeetingMainActivity;
 import politictalk.dsm.R;
+import politictalk.dsm.Meeting.MeetingMainActivity;
 
-public class WriteReportActivity extends AppCompatActivity {
+public class ViewReportActivity extends AppCompatActivity {
+    ImageView backImg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_write_report);
-
-        ImageView backImg;
-        Button done;
+        setContentView(R.layout.activity_view_report);
 
         backImg = findViewById(R.id.place);
-        done = findViewById(R.id.done);
+        final ImageView fingerButton = findViewById(R.id.like);
 
         backImg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,12 +35,27 @@ public class WriteReportActivity extends AppCompatActivity {
             }
         });
 
-        done.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("WrongConstant")
+        fingerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "완료되었습니다.", Toast.LENGTH_SHORT).show();
-                finish();
+                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which){
+                            case DialogInterface.BUTTON_POSITIVE:
+                                        Toast.makeText(getApplicationContext(), "추천하였습니다.", Toast.LENGTH_SHORT).show();
+                                break;
+
+                            case DialogInterface.BUTTON_NEGATIVE:
+                                        Toast.makeText(getApplicationContext(), "취소되었습니다.", Toast.LENGTH_SHORT).show();
+                                break;
+                        }
+                    }
+                };
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(ViewReportActivity.this);
+                builder.setMessage("추천하시겠습니까?").setPositiveButton("추천 하기", dialogClickListener)
+                        .setNegativeButton("취소", dialogClickListener).show();
             }
         });
 

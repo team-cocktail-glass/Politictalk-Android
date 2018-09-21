@@ -1,4 +1,4 @@
-package politictalk.dsm.Report;
+package politictalk.dsm.Meeting;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,34 +14,31 @@ import java.util.ArrayList;
 
 import politictalk.dsm.R;
 
-public class FactionAdapter extends RecyclerView.Adapter<FactionAdapter.CostomViewHolder> {
+public class MeetingMainAdapter extends RecyclerView.Adapter<MeetingMainAdapter.CostomViewHolder>{
     Context context;
-    ArrayList<FactionData> people;
+    ArrayList<MeetingMainData> people;
 
-    public FactionAdapter(Context context, ArrayList<FactionData> singModels) {
+    public MeetingMainAdapter(Context context, ArrayList<MeetingMainData> singModels) {
         this.context = context;
         this.people = singModels;
     }
 
     @Override
-    public CostomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.faction_itemview, parent, false);
-        return new CostomViewHolder(view);
+    public MeetingMainAdapter.CostomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.meeting_main_itemview, parent, false);
+        return new MeetingMainAdapter.CostomViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(CostomViewHolder holder, int position) {
+    public void onBindViewHolder(MeetingMainAdapter.CostomViewHolder holder, int position) {
         holder.adress.setText(people.get(position).getAdress());
-        holder.date.setText(people.get(position).getDate());
-        holder.firenum.setText(people.get(position).getFirenum() + "");
         holder.name.setText(people.get(position).getName());
-        holder.peoplenum.setText(people.get(position).getPeoplenum() + "");
 //        holder.image.setImageDrawable(people.get(position).getImage());
         holder.image.setImageResource(people.get(position).getImage());
         holder.contanier.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), ReportActivity.class);
+                Intent intent = new Intent(view.getContext(), MeetingChoiceActivity.class);
                 view.getContext().startActivity(intent);
             }
         });
@@ -55,9 +52,6 @@ public class FactionAdapter extends RecyclerView.Adapter<FactionAdapter.CostomVi
     class CostomViewHolder extends RecyclerView.ViewHolder {
         TextView name;
         TextView adress;
-        TextView firenum;
-        TextView peoplenum;
-        TextView date;
         ImageView image;
         ConstraintLayout contanier;
 
@@ -65,11 +59,8 @@ public class FactionAdapter extends RecyclerView.Adapter<FactionAdapter.CostomVi
             super(itemView);
             name = itemView.findViewById(R.id.title);
             adress = itemView.findViewById(R.id.day);
-            date = itemView.findViewById(R.id.date);
             image = itemView.findViewById(R.id.scenery);
-            peoplenum = itemView.findViewById(R.id.peopleNum);
-            firenum = itemView.findViewById(R.id.firenumber);
-            contanier = itemView.findViewById(R.id.factionItem_container);
+            contanier = itemView.findViewById(R.id.meetingitem_container);
         }
     }
 }

@@ -16,18 +16,25 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyA6_O-AAtJl19ZqVl7MByQceAtkkSBR23E" />
 
-        <activity android:name=".Login.LoginActivity" />
-        <activity android:name=".Login.SignUpActivity" />
-        <activity android:name=".Report.ReportActivity" />
-        <activity android:name=".Report.FactionActivity">
+        <activity android:name=".Login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Login.SignUpActivity" />
+        <activity android:name=".Report.ReportActivity" />
+        <activity android:name=".Report.FactionActivity" />
         <activity android:name=".Report.SearchActivity" />
-        <activity android:name=".Report.WriteReportActivity"/>
+        <activity android:name=".Report.WriteReportActivity" />
+        <activity android:name=".Report.ViewReportActivity" />
+        <activity android:name=".Meeting.MeetingMainActivity" />
+        <activity android:name=".Meeting.MeetingApplicationActivity" />
+        <activity android:name=".Meeting.MeetingChoiceActivity" />
+        <activity android:name=".Meeting.WriteMeetingActivity" />
+        <activity android:name=".Meeting.ViewMeetingActivity" />
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package politictalk.dsm.Report;
+package politictalk.dsm.Meeting;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,45 +11,37 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
 
-import politictalk.dsm.Meeting.MeetingMainActivity;
 import politictalk.dsm.R;
+import politictalk.dsm.Report.FactionActivity;
+import politictalk.dsm.Report.ReportAdapter;
+import politictalk.dsm.Report.ReportData;
 
-public class ReportActivity extends AppCompatActivity {
-    
-    ArrayList<ReportData> politicsModels = new ArrayList<>();
-    Context context = ReportActivity.this;
+public class MeetingChoiceActivity extends AppCompatActivity {
+    ArrayList<ChoiceData> politicsModels = new ArrayList<>();
+    Context context = MeetingChoiceActivity.this;
     RecyclerView recyclerView;
-    ReportAdapter adapter;
+    ChoiceAdapter adapter;
     Drawable image;
     ImageView backImg;
+    ImageView application;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_report);
-        
+        setContentView(R.layout.activity_meeting_choice);
+
         recyclerView = findViewById(R.id.recycler);
         backImg = findViewById(R.id.place);
+        application = findViewById(R.id.apply);
 
-        backImg.setOnClickListener(new View.OnClickListener() {
+        application.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
-            }
-        });
-        setData();
-        
-        setRecyclerView();
-        ImageView writeButton = findViewById(R.id.create);
-        writeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getBaseContext(), WriteReportActivity.class);
+                Intent intent = new Intent(getBaseContext(), WriteMeetingActivity.class);
                 startActivity(intent);
             }
         });
@@ -60,24 +52,37 @@ public class ReportActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.action_three:
-                        Intent intent = new Intent(getApplicationContext(), MeetingMainActivity.class);
+                    case R.id.action_two:
+                        Intent intent = new Intent(getApplicationContext(), FactionActivity.class);
                         startActivity(intent);
                         break;
                 }
                 return false;
             }
         });
+
+        backImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+        setData();
+
+        setRecyclerView();
+
     }
-    void setRecyclerView(){
+
+    void setRecyclerView() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new ReportAdapter(getApplicationContext(), politicsModels);
+        adapter = new ChoiceAdapter(getApplicationContext(), politicsModels);
         recyclerView.setAdapter(adapter);
     }
+
     void setData(){
-        for(int i = 0; i < 3; i++)
-            politicsModels.add(new ReportData(R.drawable.scenery, "박진영", "너무 이뻐요 누나아아", "2018.06.14~2022.06.01", "40"));
+        politicsModels.add(new ChoiceData(R.drawable.scenery, "만나길 원합니다.", "박진영", "D-30", 3000));
     }
 }

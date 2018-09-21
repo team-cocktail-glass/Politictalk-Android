@@ -1,7 +1,5 @@
 package politictalk.dsm.Report;
 
-import android.graphics.drawable.Drawable;
-
 public class FactionData {
 
     private int image;

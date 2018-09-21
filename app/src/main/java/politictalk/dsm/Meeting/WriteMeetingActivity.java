@@ -1,4 +1,4 @@
-package politictalk.dsm.Report;
+package politictalk.dsm.Meeting;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -12,15 +12,15 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import politictalk.dsm.Meeting.MeetingMainActivity;
 import politictalk.dsm.R;
+import politictalk.dsm.Report.FactionActivity;
 
-public class WriteReportActivity extends AppCompatActivity {
+public class WriteMeetingActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_write_report);
+        setContentView(R.layout.activity_write_meeting);
 
         ImageView backImg;
         Button done;
@@ -50,8 +50,8 @@ public class WriteReportActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.action_three:
-                        Intent intent = new Intent(getApplicationContext(), MeetingMainActivity.class);
+                    case R.id.action_two:
+                        Intent intent = new Intent(getApplicationContext(), FactionActivity.class);
                         startActivity(intent);
                         break;
                 }

@@ -1,4 +1,4 @@
-package politictalk.dsm.Report;
+package politictalk.dsm.Meeting;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -7,15 +7,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import politictalk.dsm.Meeting.MeetingMainActivity;
 import politictalk.dsm.R;
+import politictalk.dsm.Report.FactionActivity;
 
-public class SearchActivity extends AppCompatActivity {
+public class MeetingApplicationActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
+        setContentView(R.layout.activity_meeting_application);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
@@ -23,8 +23,8 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.action_three:
-                        Intent intent = new Intent(getApplicationContext(), MeetingMainActivity.class);
+                    case R.id.action_two:
+                        Intent intent = new Intent(getApplicationContext(), FactionActivity.class);
                         startActivity(intent);
                         break;
                 }
