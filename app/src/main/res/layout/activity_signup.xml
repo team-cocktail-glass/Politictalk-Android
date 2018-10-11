@@ -59,11 +59,12 @@
         app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
     <EditText
+        android:id="@+id/email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="10sp"
         android:hint="이메일을 입력하세요."
-        android:inputType="textEmailAddress"
+        android:inputType="textNoSuggestions"
         android:padding="15dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/et_round_back_first"
@@ -72,6 +73,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <EditText
+        android:id="@+id/password"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="10sp"
@@ -85,7 +87,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/checkpassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
@@ -103,7 +105,7 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/registation"
         android:padding="15dp"
         android:text="회원가입"
@@ -112,7 +114,7 @@
         android:textSize="12sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/checkpassword" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"

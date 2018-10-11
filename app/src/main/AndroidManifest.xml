@@ -3,7 +3,8 @@
     package="politictalk.dsm">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -25,7 +26,7 @@
         </activity>
         <activity android:name=".Login.SignUpActivity" />
         <activity android:name=".Report.ReportActivity" />
-        <activity android:name=".Report.FactionActivity" />
+        <activity android:name=".Report.FactionActivity"/>
         <activity android:name=".Report.SearchActivity" />
         <activity android:name=".Report.WriteReportActivity" />
         <activity android:name=".Report.ViewReportActivity" />
@@ -34,7 +35,6 @@
         <activity android:name=".Meeting.MeetingChoiceActivity" />
         <activity android:name=".Meeting.WriteMeetingActivity" />
         <activity android:name=".Meeting.ViewMeetingActivity" />
-        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>

@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -22,6 +24,7 @@ import java.util.ArrayList;
 
 import politictalk.dsm.R;
 import politictalk.dsm.Report.FactionActivity;
+import politictalk.dsm.Report.SearchActivity;
 
 public class MeetingMainActivity extends AppCompatActivity implements OnMapReadyCallback{
     ArrayList<MeetingMainData> RecyclerViewer = new ArrayList<>();
@@ -33,6 +36,16 @@ public class MeetingMainActivity extends AppCompatActivity implements OnMapReady
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ImageView Search = findViewById(R.id.search);
+
+        Search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
+                startActivity(intent);
+            }
+        });
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meeting_main);
 
@@ -48,6 +61,8 @@ public class MeetingMainActivity extends AppCompatActivity implements OnMapReady
         setData();
 
         setRecyclerView();
+
+
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
