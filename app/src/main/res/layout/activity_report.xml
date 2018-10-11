@@ -71,7 +71,7 @@
             android:shadowColor="@color/colorText"
             android:shadowDy="3"
             android:shadowRadius="6"
-            android:text="강병원 의원\n서울특별시 은평구 시의원"
+            android:text="강병원 의원"
             android:id="@+id/title"
             app:layout_constraintStart_toEndOf="@id/userprofile"
             app:layout_constraintTop_toTopOf="parent"
@@ -79,6 +79,18 @@
             android:layout_marginStart="15dp"
             app:layout_constraintLeft_toRightOf="@id/userprofile"
             />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="서울특별시 은평구"
+            android:id="@+id/address"
+            android:shadowDy="3"
+            android:shadowRadius="6"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            app:layout_constraintLeft_toRightOf="@id/userprofile"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="4dp"/>
 
 
     </android.support.constraint.ConstraintLayout>

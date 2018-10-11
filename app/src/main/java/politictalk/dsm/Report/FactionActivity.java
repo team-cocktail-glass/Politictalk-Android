@@ -4,6 +4,7 @@ import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -13,8 +14,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
@@ -24,6 +27,7 @@ import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import politictalk.dsm.Api;
 import politictalk.dsm.Meeting.MeetingMainActivity;
@@ -43,13 +47,17 @@ public class FactionActivity extends AppCompatActivity implements OnMapReadyCall
     Drawable image;
     ImageView Search;
     String region;
+    Random generator = new Random();
+    TextView textAddress;
+    String address;
+    int num;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faction);
-
+        textAddress = findViewById(R.id.textView);
         Search = findViewById(R.id.search);
         Search.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,7 +73,7 @@ public class FactionActivity extends AppCompatActivity implements OnMapReadyCall
 
         recyclerView = findViewById(R.id.recycler);
 
-        setData();
+//        setData();
 
         setRecyclerView();
 
@@ -91,9 +99,9 @@ public class FactionActivity extends AppCompatActivity implements OnMapReadyCall
         adapter = new FactionAdapter(getApplicationContext(), singleModels);
         recyclerView.setAdapter(adapter);
     }
-    void setData(){
-        singleModels.add(new FactionData(R.drawable.kangbyungwon,"강병원 의원","서울특별시 은평구 시의원",3, 121, " 2016.05.30~2020.05.30"));
-    }
+//    void setData(){
+//        singleModels.add(new FactionData(R.drawable.kangbyungwon,"강병원 의원","서울특별시 은평구 시의원",3, 121, " 2016.05.30~2020.05.30"));
+//    }
 
 
     @Override
@@ -108,6 +116,8 @@ public class FactionActivity extends AppCompatActivity implements OnMapReadyCall
         if (resultCode == RESULT_OK){
             Toast.makeText(context, data.getStringExtra("location"), Toast.LENGTH_SHORT).show();
             get(data.getStringExtra("location"));
+            address = data.getStringExtra("location");
+            textAddress.setText(address);
 //            Toast.makeText(context, "TEST", Toast.LENGTH_SHORT).show();
         }
     }
@@ -126,7 +136,11 @@ public class FactionActivity extends AppCompatActivity implements OnMapReadyCall
                 if(response.code() == 200) {
                     Toast.makeText(context, "조회 성공", Toast.LENGTH_SHORT).show();
                     adapter.people.clear();
-//                    adapter.people.add()
+                    List<PoliListModel> poliModelsList = response.body();
+                    for (PoliListModel model : poliModelsList) {
+                        adapter.people.add(new FactionData(model.getPhoto(),model.getName() + " 의원", model.getAddress(), num=generator.nextInt(50), num=generator.nextInt(100), model.getBirthDay(),model.getPoliticianId()));
+                    }
+
                     adapter.notifyDataSetChanged();
                 } else {
                     Toast.makeText(context, "조회 실패", Toast.LENGTH_SHORT).show();

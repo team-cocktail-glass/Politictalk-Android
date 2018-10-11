@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 import politictalk.dsm.R;
@@ -30,15 +32,16 @@ public class MeetingMainAdapter extends RecyclerView.Adapter<MeetingMainAdapter.
     }
 
     @Override
-    public void onBindViewHolder(MeetingMainAdapter.CostomViewHolder holder, int position) {
+    public void onBindViewHolder(MeetingMainAdapter.CostomViewHolder holder, final int position) {
         holder.adress.setText(people.get(position).getAdress());
         holder.name.setText(people.get(position).getName());
-//        holder.image.setImageDrawable(people.get(position).getImage());
-        holder.image.setImageResource(people.get(position).getImage());
+        Glide.with(context).load(people.get(position).getImage()).into(holder.image);
+//        holder.image.setImageResource(people.get(position).getImage());
         holder.contanier.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), MeetingChoiceActivity.class);
+                intent.putExtra("pId", people.get(position).getpId());
                 view.getContext().startActivity(intent);
             }
         });

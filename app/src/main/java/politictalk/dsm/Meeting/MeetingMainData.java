@@ -1,22 +1,24 @@
 package politictalk.dsm.Meeting;
 
 public class MeetingMainData {
-    private int image;
+    private String image;
     private String name;
     private String adress;
+    private String pId;
 
-    public MeetingMainData(int image, String name, String adress, String date){
+    public MeetingMainData(String image, String name, String adress, String date, String pId){
         this.image = image;
         this.name = name;
         this.adress = adress;
+        this.pId = pId;
     }
 
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
@@ -36,4 +38,11 @@ public class MeetingMainData {
         this.adress = adress;
     }
 
+    public String getpId() {
+        return pId;
+    }
+
+    public void setpId(String pId) {
+        this.pId = pId;
+    }
 }

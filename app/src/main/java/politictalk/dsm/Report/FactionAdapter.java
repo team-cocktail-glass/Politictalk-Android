@@ -4,11 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
@@ -30,18 +33,21 @@ public class FactionAdapter extends RecyclerView.Adapter<FactionAdapter.CostomVi
     }
 
     @Override
-    public void onBindViewHolder(CostomViewHolder holder, int position) {
+    public void onBindViewHolder(CostomViewHolder holder, final int position) {
         holder.adress.setText(people.get(position).getAdress());
         holder.date.setText(people.get(position).getDate());
         holder.firenum.setText(people.get(position).getFirenum() + "");
         holder.name.setText(people.get(position).getName());
         holder.peoplenum.setText(people.get(position).getPeoplenum() + "");
-//        holder.image.setImageDrawable(people.get(position).getImage());
-        holder.image.setImageResource(people.get(position).getImage());
+
+        Glide.with(context).load(people.get(position).getImage()).into(holder.image);
         holder.contanier.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), ReportActivity.class);
+                intent.putExtra("pId", people.get(position).getpId());
+                Log.d("Debug","AFADSFADSF : "+ people.get(position).getpId());
+//                intent.putExtra();
                 view.getContext().startActivity(intent);
             }
         });

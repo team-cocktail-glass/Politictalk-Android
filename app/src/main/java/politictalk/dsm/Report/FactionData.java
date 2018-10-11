@@ -2,28 +2,30 @@ package politictalk.dsm.Report;
 
 public class FactionData {
 
-    private int image;
+    private String pId;
+    private String image;
     private String name;
     private String adress;
     private int peoplenum;
     private int firenum;
     private String date;
 
-    public FactionData(int image, String name, String adress, int peoplenum, int firenum, String date){
+    public FactionData(String image, String name, String adress, int peoplenum, int firenum, String date, String pId){
         this.image = image;
         this.name = name;
         this.adress = adress;
         this.firenum = firenum;
         this.peoplenum = peoplenum;
         this.date = date;
+        this.pId = pId;
     }
 
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
@@ -67,4 +69,11 @@ public class FactionData {
         this.date = date;
     }
 
+    public String getpId() {
+        return pId;
+    }
+
+    public void setpId(String pId) {
+        this.pId = pId;
+    }
 }

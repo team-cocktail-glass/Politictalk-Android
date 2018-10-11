@@ -18,6 +18,9 @@ public interface Api {
     @POST("account/signup")
     Call<Void> post_signup(@Body JsonObject jsonObject);
 
+    @GET("politician")
+    Call<PoliListModel> politician(@Query("politicianId") String politicianId);
+
     @GET("politician/list")
     Call<List<PoliListModel>> get_politician(@Query("region") String region, @Query("position") String position, @Query("name") String name);
 

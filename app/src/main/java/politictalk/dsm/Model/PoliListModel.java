@@ -62,11 +62,11 @@ public class PoliListModel {
         return photo;
     }
 
-    @SerializedName("politicationID")
-    private String politicationID;
+    @SerializedName("politicianId")
+    private String politicianId;
 
-    public String getPoliticationID() {
-        return politicationID;
+    public String getPoliticianId() {
+        return politicianId;
     }
 
     @SerializedName("position")
